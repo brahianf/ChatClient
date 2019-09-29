@@ -3,12 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Control;
+package control;
 
+
+import java.io.*;
+import Control.Customer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.text.BadLocationException;
 /**
  *
- * @author BrnH
+ * @author Brn Hurtado
  */
-public class Reader {
-    
+class Reader extends Thread {
+
+    private Customer clientChat;
+
+    public Reader(Customer clientChat) {
+        this.clientChat = clientChat;
+        start();
+    }
+
+    public void run() {
+        String line = null;
+        try {
+            while ((line = clientChat.in.readLine()) != null) {
+                clientChat.show(line + System.getProperty("line.separator"));
+            }
+        } catch (IOException e2) {
+        }
+    }
 }
