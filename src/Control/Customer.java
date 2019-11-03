@@ -10,6 +10,9 @@ import java.net.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
+import view.RegistryCustomer;
+import view.Signin;
+import view.ViewChat;
 /**
  *
  * @author Brn Hurtado
@@ -97,7 +100,7 @@ public class Customer {
             //Oculta la ventana de inicio de sesion
             sig.setVisible(false);
             //Muestra la vista principal del chat
-            viewChat = new viewChat(this);
+            viewChat = new ViewChat(this);
             viewChat.setVisible(true);
             //Inicia la clase que recibe mensajes
             new Reader(this);
